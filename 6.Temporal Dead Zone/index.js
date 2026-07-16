@@ -1,51 +1,51 @@
-// //Global Scope
-// const age=25;
-// console.log(age);
+//Global Scope
+const age=25;
+console.log(age);
 
-// {
-//     console.log(age);
-// }
+{
+    console.log(age);
+}
 
-// if(true){
-//     console.log(age);
-// }
+if(true){
+    console.log(age);
+}
 
-// for(let i=0;i<1;i++){
-//     console.log(age);
-// }
+for(let i=0;i<1;i++){
+    console.log(age);
+}
 
-// function sayHello(){
-//     console.log("Hello",age);
-// }
-// sayHello();
-
-
-// //function scope
-// function sayHello(){
-//     var fullname="John";
-//     console.log("Hello",name);
-// }
-// console.log(fullname);// ReferenceError: fullname is not defined because fullname is in function scope
-// sayHello();
+function sayHello(){
+    console.log("Hello",age);
+}
+sayHello();
 
 
-// //block scope
-// {
-//     let age=30;
-// }
-// console.log(age);//ReferenceError: age is not defined because let is block scoped
+//function scope
+function sayHello(){
+    var fullname="John";
+    console.log("Hello",name);
+}
+console.log(fullname);// ReferenceError: fullname is not defined because fullname is in function scope
+sayHello();
 
-// {
-//     const age=35;
-// }
-// console.log(age);//ReferenceError: age is not defined because const is block scoped
 
-// {
-//     var age=40;
-// }
-// console.log(age);//40 because var is not block scoped
+//block scope
+{
+    let age=30;
+}
+console.log(age);//ReferenceError: age is not defined because let is block scoped
 
-// //Temporal Dead Zone
+{
+    const age=35;
+}
+console.log(age);//ReferenceError: age is not defined because const is block scoped
+
+{
+    var age=40;
+}
+console.log(age);//40 because var is not block scoped
+
+//Temporal Dead Zone
 
 console.log(marks);
 let marks=90;//ReferenceError: Cannot access 'marks' before initialization

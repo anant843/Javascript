@@ -1,5 +1,5 @@
 //Async-await & Fetch API
-//Awaoit can be used only inside async function
+//Await can be used only inside async function
 
 // async function fetchData() {
 //     setTimeout (function(){

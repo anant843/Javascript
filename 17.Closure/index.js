@@ -1,6 +1,6 @@
 //Closure is a top level entity it contain a function along with its lexical scope or surrounding state or required data.
 
-function outetrfunction() {
+function outerfunction() {
   let name = "Anant"; // let is a block scope.
   function innerfunction() {
     console.log(name); 

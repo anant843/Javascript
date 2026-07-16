@@ -1,4 +1,4 @@
-$.on('button', 'click', function onClicl(){
+$.on('button', 'click', function onClick(){
     console.log('clicked');
 });//Firstly go to the web api environment to register the click event listener then go to the call back queue to wait for the click event to be triggered when the user clicks the button the event loop will push the onClick callback function to the call stack for execution
 
