@@ -1,182 +1,266 @@
-// creation of object
-let obj={
-    "full name":"Anant Rajput",
-    age:21,
-    weight:65,
-    greet:function(){
-        console.log("hello kaise ho")
+
+// 1. Object Creation
+// An object stores data in key-value pairs.
+// Functions inside objects are called methods.
+
+let obj = {
+    "full name": "Anant Rajput",
+    age: 21,
+    weight: 65,
+    greet: function() {
+        console.log("hello kaise ho");
     }
 };
 
-
-// creation of arrays
-let arr=[10,20,30,40,50];
+// obj.greet(); // Calls the greet method
 
 
-// creation of array using constructor 
-let brr=new Array('Love','1',true);
-console.log(brr[1]); // 1
+// 2. Array Creation
+// An array stores multiple values in a single variable.
+
+let arr = [10, 20, 30, 40, 50];
 
 
+// 3. Array Creation Using Constructor
+// The Array constructor creates an array using the new keyword.
+// Indexing starts from 0.
 
-// Array Methods in JavaScript.........
-let brr=new Array("John", "Doe", 30, 70, 180);// Creating an array using the Array constructor
-
-
-// Push Method...
-brr.push("Anant"); // Adding an element to the end of the array
-
-
-// Pop Method...
-brr.pop(); // Removing the last element of the array
+let brr = new Array("Love", "1", true);
+console.log(brr[1]); // Output: 1
 
 
-// Shift Method...
-brr.shift(); // Removing the first element of the array
+// 4. Array Methods
+// Creating an array to practice different array methods.
+
+let names = new Array("John", "Doe", 30, 70, 180);
 
 
-// Unshift Method...
-brr.unshift("Mr."); // Adding an element to the beginning of the array
+// Push Method
+// push() adds an element at the end of the array.
+
+names.push("Anant");
 
 
-// Slice Method...
-console.log(brr.slice(1,3)); // Extracting a section of the array from index 1 to 3 (not included 3)
+// Pop Method
+// pop() removes the last element of the array.
+
+names.pop();
 
 
-// Splice Method...
-brr.splice(1,2,"Vansh"); // Removing 2 elements from index 1 and adding "Vansh" at that position
+// Shift Method
+// shift() removes the first element of the array.
 
-brr.splice(2,0,"Smith"); // Adding "Smith" at index 2 without removing any elements
-
-console.log(brr);
-// console.log(brr[0]); // Accessing the first element of the array
+names.shift();
 
 
+// Unshift Method
+// unshift() adds an element at the beginning of the array.
 
-// MAP method....
-let arr=[10,20,30];
-let ansArray=arr.map((number)=>{
-    return number*number;
-})
-console.log(ansArray) // [100, 400, 900]
-// The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
-
-let arr=[1,2,3,4,5];
-arr.map((number,index)=>{
-    console.log(number+1);
-    console.log(index);
-})
+names.unshift("Mr.");
 
 
+// Slice Method
+// slice(start, end) returns a portion of an array.
+// The end index is excluded.
+// slice() does not modify the original array.
 
-// Filter Method....
-let arr=[10,20,30,40,50,21,11,31];
-let evenArray=arr.filter((number)=>{//filter method creates a new array with all elements that pass the test implemented by the provided function.
-if(number%2===0){
-    return true;
+console.log(names.slice(1, 3));
+
+
+// Splice Method
+// splice(start, deleteCount, item) removes or replaces elements.
+// It modifies the original array.
+
+names.splice(1, 2, "Vansh");
+// Removes 2 elements from index 1 and inserts "Vansh".
+
+names.splice(2, 0, "Smith");
+// Inserts "Smith" at index 2 without removing any elements.
+
+console.log(names);
+// console.log(names[0]); // Accesses the first element
+
+
+// 5. MAP Method
+// map() creates a new array by applying a function to every element.
+// It does not modify the original array.
+
+let mapArr = [10, 20, 30];
+
+let ansArray = mapArr.map((number) => {
+    return number * number;
+});
+
+console.log(ansArray); // Output: [100, 400, 900]
+
+
+// map() also provides the current element and its index.
+
+let mapArr2 = [1, 2, 3, 4, 5];
+
+mapArr2.map((number, index) => {
+    console.log(number + 1); // Prints each number plus 1
+    console.log(index);      // Prints the current index
+});
+
+
+// 6. FILTER Method
+// filter() creates a new array containing elements
+// that satisfy the given condition.
+
+let filterArr = [10, 20, 30, 40, 50, 21, 11, 31];
+
+let evenArray = filterArr.filter((number) => {
+    if (number % 2 === 0) {
+        return true;  // Keep even numbers
+    } else {
+        return false; // Remove odd numbers
+    }
+});
+
+console.log(evenArray); // Output: [10, 20, 30, 40, 50]
+
+
+// 7. REDUCE Method
+// reduce() processes array elements to produce a single result.
+// acc = accumulated result; curr = current element.
+// 0 is the initial value of the accumulator.
+
+let reduceArr = [10, 20, 30, 40, 50];
+
+let sum = reduceArr.reduce((acc, curr) => {
+    return acc + curr;
+}, 0);
+
+console.log(sum); // Output: 150
+
+
+// 8. Sorting in Ascending Order
+// sort() modifies the original array.
+// By default, it sorts elements as strings.
+// Use (a, b) => a - b for numeric ascending order.
+
+let sortArr = [9, 5, 1, 3, 7];
+
+sortArr.sort((a, b) => a - b);
+console.log(sortArr); // Output: [1, 3, 5, 7, 9]
+
+
+// Sorting in Descending Order
+// (a, b) => b - a sorts numbers from largest to smallest.
+
+sortArr.sort((a, b) => b - a);
+console.log(sortArr); // Output: [9, 7, 5, 3, 1]
+
+
+// Sorting Strings
+// localeCompare() compares strings according to language rules.
+// Reversing the comparison gives descending alphabetical order.
+
+let fruits = ["Banana", "Apple", "Mango", "Cherry"];
+
+fruits.sort((a, b) => b.localeCompare(a));
+console.log(fruits);
+// Output: ["Mango", "Cherry", "Banana", "Apple"]
+
+
+// 9. indexOf() Method
+// indexOf() returns the index of the first matching element.
+// If the element is not found, it returns -1.
+
+let searchArr = [10, 20, 30, 40, 50];
+
+console.log(searchArr.indexOf(30));  // Output: 2
+console.log(searchArr.indexOf(100)); // Output: -1 (not found)
+
+
+// 10. FIND Method
+// find() returns the first element that satisfies the condition.
+// It returns undefined if no element matches.
+
+let findArr = [10, 20, 30, 40, 50];
+
+let result = findArr.find((number) => {
+    return number > 25;
+});
+
+console.log(result); // Output: 30
+
+
+// 11. Array Length and For Loop
+// length gives the total number of elements in an array.
+// The loop accesses each element using its index.
+
+let loopArr = [10, 20, 30, 40, 50];
+
+let length = loopArr.length;
+console.log("Length:", length); // Output: 5
+
+for (let index = 0; index < length; index++) {
+    console.log(loopArr[index]);
 }
-else{
-    return false;
-}
-})
-console.log(evenArray); // [10, 20, 30, 40, 50]
+// Prints: 10, 20, 30, 40, 50
 
 
+// 12. forEach() Method
+// forEach() executes a function for every array element.
+// value represents the element and index represents its position.
+// It is generally used to perform an action for each element.
 
-// Reduce Method...
-let arr=[10,20,30,40,50];
-let ans=arr.reduce((acc,curr)=>{
-    return acc+curr;
-},0);// The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
-console.log(ans); // 150
-
-
-
-// Sorting in ascending and descending order....
-let arr=[9,5,1,3,7];
-arr.sort();// By default, the sort() method sorts the elements as strings in alphabetical and ascending order.
-console.log(arr); // [1, 3, 5, 7, 9]
+loopArr.forEach((value, index) => {
+    console.log("Number:", value, "Index:", index);
+});
 
 
-arr.sort((a,b)=>b - a);// To sort numbers in descending order, we provide a compare function that subtracts b from a.
-console.log(arr); // [9, 7, 5, 3, 1]
+// 13. for...in Loop
+// for...in iterates over an object's enumerable keys.
+// obj[key] accesses the value associated with each key.
 
-
-let fruits=["Banana", "Apple", "Mango", "Cherry"];
-fruits.sort((a,b)=>b.localeCompare(a));// The localeCompare() method compares two strings in the current locale.
-console.log(fruits); // ['Mango', 'Cherry', 'Banana', 'Apple']
-
-
-let arr=[10,20,30,40,50];
-console.log(arr.indexOf(30)); // 2
-console.log(arr.indexOf(100)); // -1 (not found)
-
-
-
-// Find Method.....
-let arr=[10,20,30,40,50];
-let result=arr.find((number)=>{
-    return number>25;
-});// The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
-console.log(result); // 30
-
-
-let arr=[10,20,30,40,50];
-
-let length=arr.length;
-console.log("Length: ",length);
-
-for(let index=0;index<length;i++){
-    console.log[index];
-}
-
-
-
-// For Each loop....
-arr.forEach((value,index)=>{
-    console.log("Number",value,"Index",index);
-})
-
-
-
-// For In Loop....
-let obj={
-    name:"John",
-    "full name":"John Doe",//use quotes for keys with spaces
-    age:30,
-    weight:70,
-    height:180,
-    greeet : function(){
-        console.log("Hello " + this.name+" Kaise ho?");
-}
+let person = {
+    name: "John",
+    "full name": "John Doe", // Quotes are needed for keys with spaces
+    age: 30,
+    weight: 70,
+    height: 180,
+    greet: function() {
+        console.log("Hello " + this.name + " Kaise ho?");
+    }
 };
-for(let key in obj){//iterating over object keys
-    console.log(key," ",obj[key]);
+
+for (let key in person) {
+    console.log(key, person[key]);
 }
-// console.log(obj)
-// obj.greeet();
+
+// person.greet(); // Calls the greet method
 
 
+// 14. for...of Loop
+// for...of iterates directly over the values of an iterable,
+// such as an array.
 
-// For of Loop....
-let arr=[10,20,30,40,50];
-for(let value of arr){//iterating over array values
+let ofArr = [10, 20, 30, 40, 50];
+
+for (let value of ofArr) {
     console.log(value);
 }
+// Prints: 10, 20, 30, 40, 50
 
 
+// 15. Passing an Array to a Function
+// An array can be passed as an argument to a function.
+// The function calculates and returns the sum of all elements.
 
-// Passing a Function in array....
-let arr=[10,20,30,40,50];
+let sumArr = [10, 20, 30, 40, 50];
 
-function getsum(arr){
-    let len=arr.length;
-    let sum=0;
-    for(let i=0;i<len;i++){
-        sum+=arr[i];
+function getSum(arr) {
+    let len = arr.length;
+    let sum = 0;
+
+    for (let i = 0; i < len; i++) {
+        sum += arr[i];
     }
+
     return sum;
 }
 
-let total=getsum(arr);
-console.log(total);
+console.log(getSum(sumArr)); // Output: 150
